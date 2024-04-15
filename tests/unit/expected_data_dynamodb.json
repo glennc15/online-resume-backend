@@ -1,0 +1,453 @@
+{
+    "name": {
+        "S": "Glenn Crosby"
+    },
+    "location": {
+        "S": "Alvin, Texas"
+    },
+    "titleLinks": {
+        "L": [
+            {
+                "M": {
+                    "icon": {
+                        "S": "fa-envelope"
+                    },
+                    "link": {
+                        "S": "mailto:glenn@glenn.dev"
+                    },
+                    "display": {
+                        "S": "glenn@glenn.dev"
+                    }
+                }
+            },
+            {
+                "M": {
+                    "icon": {
+                        "S": "fa-phone"
+                    },
+                    "link": {
+                        "S": "tel:+12816944143"
+                    },
+                    "display": {
+                        "S": "+1 (281) 694-4143"
+                    }
+                }
+            },
+            {
+                "M": {
+                    "icon": {
+                        "S": "fa-linkedin"
+                    },
+                    "link": {
+                        "S": "https://www.linkedin.com/in/glenncrosby"
+                    },
+                    "display": {
+                        "S": "https://www.linkedin.com/in/glenncrosby"
+                    }
+                }
+            },
+            {
+                "M": {
+                    "icon": {
+                        "S": "fa-github"
+                    },
+                    "link": {
+                        "S": "https://github.com/glennc15"
+                    },
+                    "display": {
+                        "S": "https://github.com/glennc15"
+                    }
+                }
+            }
+        ]
+    },
+    "professionalSummary": {
+        "L": [
+            {
+                "S": "Dynamic and results-oriented professional with extensive experience in project management, commissioning, and technical leadership within the oil and gas industry. Proven track record of managing diverse teams, ensuring compliance with industry standards, and maintaining exceptional client relationships. Skilled in project planning, equipment installation, commissioning, and quality assurance. Proficient in programming languages such as Python and JavaScript, with expertise in industrial networking protocols and PLC hardware. Seeking to leverage strong technical acumen, problem-solving abilities, and a commitment to excellence in a challenging data engineering role"
+            }
+        ]
+    },
+    "leftSkills": {
+        "L": [
+            {
+                "M": {
+                    "heading": {
+                        "S": "Data Engineering"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Apache Airflow"
+                            },
+                            {
+                                "S": "AWS"
+                            },
+                            {
+                                "S": "Terraform"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Web Scraping"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Scrapy"
+                            },
+                            {
+                                "S": "Playwright"
+                            },
+                            {
+                                "S": "Requests"
+                            },
+                            {
+                                "S": "Bash"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "DevOps"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Docker"
+                            },
+                            {
+                                "S": "GitHub"
+                            },
+                            {
+                                "S": "CI/CD"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Web Development"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Angular"
+                            },
+                            {
+                                "S": "HTML"
+                            },
+                            {
+                                "S": "CSS"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Database Systems"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "MongoDB"
+                            },
+                            {
+                                "S": "PostgreSQL"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Programming Languages"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Python"
+                            },
+                            {
+                                "S": "JavaScript"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Operating Systems"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Mac OS"
+                            },
+                            {
+                                "S": "GNU/Linux"
+                            },
+                            {
+                                "S": "Windows"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "rightSkills": {
+        "L": [
+            {
+                "M": {
+                    "heading": {
+                        "S": "Industrial Programming"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "SCL"
+                            },
+                            {
+                                "S": "STL"
+                            },
+                            {
+                                "S": "Ladder Logic"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Industrial Networks"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Profibus DP"
+                            },
+                            {
+                                "S": "Modbus"
+                            },
+                            {
+                                "S": "Industrial Ethernet"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "heading": {
+                        "S": "Industrial Hardware"
+                    },
+                    "skills": {
+                        "L": [
+                            {
+                                "S": "Siement 300/400H"
+                            },
+                            {
+                                "S": "Allen Bradley PLC5/SLC"
+                            },
+                            {
+                                "S": "Omron"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "experience": {
+        "L": [
+            {
+                "M": {
+                    "title": {
+                        "S": "Installation and Commissioning Manager"
+                    },
+                    "company": {
+                        "S": "National Oilwell Varco"
+                    },
+                    "location": {
+                        "S": "China/UAE"
+                    },
+                    "dates": {
+                        "S": "Jan 2010 - Sep 2019"
+                    },
+                    "list": {
+                        "BOOL": false
+                    },
+                    "paragraphs": {
+                        "L": [
+                            {
+                                "S": "I oversaw complex projects related to the installation and commissioning of cutting-edge equipment in the oil and gas industry. My responsibilities included project planning, team leadership, and ensuring the successful integration of equipment in challenging operational environments, contributing to the company's reputation for excellence."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "title": {
+                        "S": "Commissioning Engineer"
+                    },
+                    "company": {
+                        "S": "National Oilwell Varco"
+                    },
+                    "location": {
+                        "S": "China/Korea/Singapore/UAE"
+                    },
+                    "dates": {
+                        "S": "May 2000 - Jan 2010"
+                    },
+                    "list": {
+                        "BOOL": false
+                    },
+                    "paragraphs": {
+                        "L": [
+                            {
+                                "S": "I specialized in overseeing the commissioning process for oil and gas equipment. My role emphasized a commitment to safety, strong troubleshooting skills, and effective communication. I thrived in remote and challenging work environments while maintaining meticulous documentation of critical processes."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "title": {
+                        "S": "Electrical Designer"
+                    },
+                    "company": {
+                        "S": "Champion Elevators"
+                    },
+                    "location": {
+                        "S": "Houston, TX"
+                    },
+                    "dates": {
+                        "S": "May 1999 - May 2000"
+                    },
+                    "list": {
+                        "BOOL": true
+                    },
+                    "paragraphs": {
+                        "L": [
+                            {
+                                "S": "Produced detailed electrical schematics and panel assembly drawings, complete with comprehensive BOMs, using AutoCAD and Solid Edge."
+                            },
+                            {
+                                "S": "Develop custom elevator control software on Omron and Allen Bradley PLCs, along with intuitive HMI interfaces, enhancing elevator system efficiency and functionality."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "title": {
+                        "S": "Control Technician"
+                    },
+                    "company": {
+                        "S": "Tejas Boiler Service"
+                    },
+                    "location": {
+                        "S": "Houston, TX"
+                    },
+                    "dates": {
+                        "S": "Sep 1994 - May 1999"
+                    },
+                    "list": {
+                        "BOOL": true
+                    },
+                    "paragraphs": {
+                        "L": [
+                            {
+                                "S": "Integral member of a dynamic engineering team, actively involved in diverse engineering disciplines."
+                            },
+                            {
+                                "S": "Designed custom burner monitoring and boiler control software for Allen Bradley PLCs meeting stringent NFPA 8502 requirements."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "M": {
+                    "title": {
+                        "S": "Electrician's Mate, Second Class"
+                    },
+                    "company": {
+                        "S": "United States Navy"
+                    },
+                    "location": {
+                        "S": "USS Sturgeon"
+                    },
+                    "dates": {
+                        "S": "Aug 1989 - Aug 1994"
+                    },
+                    "list": {
+                        "BOOL": false
+                    },
+                    "paragraphs": {
+                        "L": [
+                            {
+                                "S": "As a US Navy Nuclear-Trained Electrician on a fast attack submarine, I held a critical role in ensuring the safe and reliable operation of the ship's electrical systems, contributing to mission success and crew safety in challenging and dynamic environments."
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "education": {
+        "L": [
+            {
+                "M": {
+                    "name": {
+                        "S": "AWS Certified Cloud Practitioner"
+                    },
+                    "dates": {
+                        "S": "Mar 2024"
+                    }
+                }
+            },
+            {
+                "M": {
+                    "name": {
+                        "S": "Houston Community College @ Main Campus, Houston, TX"
+                    },
+                    "dates": {
+                        "S": "Jan 1995 - Jul 1998"
+                    }
+                }
+            },
+            {
+                "M": {
+                    "name": {
+                        "S": "Naval Nuclear Power School @ NTC Orlando, Fl"
+                    },
+                    "dates": {
+                        "S": "Jul 1990 - Dec 1990"
+                    }
+                }
+            }
+        ]
+    },
+    "visitors": {
+        "N": "637"
+    }
+}
