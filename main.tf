@@ -38,7 +38,7 @@ resource "aws_s3_bucket_acl" "lambda_bucket" {
 data "archive_file" "lambda_hello_world" {
   type = "zip"
 
-  source_dir  = "${path.module}/hello-world"
+  source_dir  = "${path.module}/src/api"
   output_path = "${path.module}/hello-world.zip"
 }
 
@@ -58,8 +58,8 @@ resource "aws_lambda_function" "hello_world" {
   s3_bucket = aws_s3_bucket.lambda_bucket.id
   s3_key    = aws_s3_object.lambda_hello_world.key
 
-  runtime = "nodejs20.x"
-  handler = "hello.handler"
+  runtime = "python3.9"
+  handler = "resume.resume_handler"
 
   source_code_hash = data.archive_file.lambda_hello_world.output_base64sha256
 
