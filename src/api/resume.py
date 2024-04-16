@@ -7,7 +7,7 @@ print("get_terraform_outputs()")
 print(get_terraform_outputs())
 
 dynamodb = boto3.resource('dynamodb')
-ddbTable = dynamodb.Table(USERS_TABLE)
+ddbTable = dynamodb.Table(get_terraform_outputs().get("ResumeTable"))
 
 
 def resume_handler(event, context):
