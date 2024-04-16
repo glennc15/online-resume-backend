@@ -15,8 +15,8 @@ data "aws_caller_identity" "current" {}
 
 
 
-resource "aws_lambda_function" "hello_world" {
-  function_name = "HelloWorld"
+resource "aws_lambda_function" "get_resume" {
+  function_name = "GetResume"
 
   s3_bucket = aws_s3_bucket.lambda_bucket.id
   s3_key    = aws_s3_object.lambda_get_resume.key
@@ -29,8 +29,8 @@ resource "aws_lambda_function" "hello_world" {
   role = aws_iam_role.lambda_exec.arn
 }
 
-resource "aws_cloudwatch_log_group" "hello_world" {
-  name = "/aws/lambda/${aws_lambda_function.hello_world.function_name}"
+resource "aws_cloudwatch_log_group" "get_resume" {
+  name = "/aws/lambda/${aws_lambda_function.get_resume.function_name}"
 
   retention_in_days = 30
 }
@@ -81,7 +81,7 @@ resource "aws_iam_policy" "userfunctions_lambda_role_policy" {
         "dynamodb:ConditionCheckItem"
       ],
       "Effect": "Allow",
-      "Resource": "arn:*:dynamodb:${var.aws_region}:${data.aws_caller_identity.current.account_id}:table/${aws_dynamodb_table.users_table.id}"
+      "Resource": "arn:*:dynamodb:${var.aws_region}:${data.aws_caller_identity.current.account_id}:table/${aws_dynamodb_table.resume_table.id}"
     },
     {
       "Action": [
@@ -139,19 +139,19 @@ resource "aws_apigatewayv2_stage" "lambda" {
   }
 }
 
-resource "aws_apigatewayv2_integration" "hello_world" {
+resource "aws_apigatewayv2_integration" "get_resume" {
   api_id = aws_apigatewayv2_api.lambda.id
 
-  integration_uri    = aws_lambda_function.hello_world.invoke_arn
+  integration_uri    = aws_lambda_function.get_resume.invoke_arn
   integration_type   = "AWS_PROXY"
   integration_method = "POST"
 }
 
-resource "aws_apigatewayv2_route" "hello_world" {
+resource "aws_apigatewayv2_route" "get_resume" {
   api_id = aws_apigatewayv2_api.lambda.id
 
   route_key = "GET /resume"
-  target    = "integrations/${aws_apigatewayv2_integration.hello_world.id}"
+  target    = "integrations/${aws_apigatewayv2_integration.get_resume.id}"
 }
 
 resource "aws_cloudwatch_log_group" "api_gw" {
@@ -163,7 +163,7 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 resource "aws_lambda_permission" "api_gw" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.hello_world.function_name
+  function_name = aws_lambda_function.get_resume.function_name
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${aws_apigatewayv2_api.lambda.execution_arn}/*/*"

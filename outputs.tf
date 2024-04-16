@@ -12,7 +12,7 @@ output "lambda_bucket_name" {
 output "function_name" {
   description = "Name of the Lambda function."
 
-  value = aws_lambda_function.hello_world.function_name
+  value = aws_lambda_function.get_resume.function_name
 }
 
 output "APIEndpoint" {
@@ -22,5 +22,5 @@ output "APIEndpoint" {
 }
 
 output "ResumeTable" {
-  value = aws_dynamodb_table.users_table.id
+  value = aws_dynamodb_table.resume_table.id
 }

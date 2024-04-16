@@ -27,13 +27,13 @@ data "archive_file" "lambda_resume" {
   type = "zip"
 
   source_dir  = "${path.module}/src/api"
-  output_path = "${path.module}/hello-world.zip"
+  output_path = "${path.module}/resume.zip"
 }
 
 resource "aws_s3_object" "lambda_get_resume" {
   bucket = aws_s3_bucket.lambda_bucket.id
 
-  key    = "hello-world.zip"
+  key    = "resume.zip"
   source = data.archive_file.lambda_resume.output_path
 
   etag = filemd5(data.archive_file.lambda_resume.output_path)
