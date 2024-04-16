@@ -15,14 +15,6 @@ from tests.helpers import get_dynamodb_json, get_terraform_outputs, get_json_dat
 
 globalConfig = {}
 
-# def get_terraform_outputs():
-#     terraform_outputs = subprocess.run(['terraform output'], stdout=subprocess.PIPE, shell=True)
-#     terraform_str = terraform_outputs.stdout.decode('utf-8')
-#     terraform_parts = [x.split(' = ') for x in terraform_str.split('\n')]
-#     terraform_outputs = dict([(x[0], x[1][1:-1]) for x in terraform_parts if len(x) > 1])
-
-#     return terraform_outputs
-
 
 def clear_dynamo_tables():
     # clear all data from the tables that will be used for testing
@@ -48,8 +40,6 @@ def create_resume_record():
 
     }
 
-    # print(record_data)
-
     dbd_client = boto3.resource('dynamodb')
     ddb_table = dbd_client.Table(globalConfig.get("ResumeTable"))
     create_result = ddb_table.put_item(
@@ -62,9 +52,11 @@ def create_resume_record():
 @pytest.fixture(scope='session')
 def global_config(request):
     global globalConfig
-
     globalConfig.update(get_terraform_outputs())
     clear_dynamo_tables()
     globalConfig.update(create_resume_record())
 
-    return globalConfig
+    yield globalConfig
+
+    clear_dynamo_tables()
+    create_resume_record()
