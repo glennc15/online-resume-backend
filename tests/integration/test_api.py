@@ -4,12 +4,30 @@
 import json
 import requests
 
-new_user_id = ""
-new_user = {"name": "John Doe"}
+from tests.helpers import get_dynamodb_json
 
+
+def test_get_resume_data_response(global_config):
+    respone = requests.get(f"{global_config.get('APIEndpoint')}/resume")
+    assert respone.status_code == 200
 
 def test_get_resume_data(global_config):
-    pass
+    respone = requests.get(f"{global_config.get('APIEndpoint')}/resume")
+    resume_data = respone.json()
+    print(respone.json())
+
+
+    expected_data = get_dynamodb_json()
+
+    for k,v in expected_data.items():
+        assert expected_data.get(k) == resume_data.get(k)
+
+    for k,v in resume_data.items():
+        assert resume_data.get(k) == expected_data.get(k)
+
+
+
+
 
 
 # tf-serverless-patterns_rest_api

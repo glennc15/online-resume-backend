@@ -10,23 +10,17 @@ from moto import mock_dynamodb
 from contextlib import contextmanager
 from unittest.mock import patch
 
-USERS_MOCK_TABLE_NAME = 'Resumes'
+from tests.helpers import get_json_data, get_dynamodb_json, get_terraform_outputs
+
+
+print("get_terraform_outputs()")
+print(get_terraform_outputs())
+
+USERS_MOCK_TABLE_NAME = get_terraform_outputs().get("ResumeTable")
 UUID_MOCK_VALUE_JOHN = 'f8216640-91a2-11eb-8ab9-57aa454facef'
 UUID_MOCK_VALUE_JANE = '31a9f940-917b-11eb-9054-67837e2c40b0'
 UUID_MOCK_VALUE_NEW_USER = 'new-user-guid'
 
-
-def get_json_data():
-    with open("./tests/unit/expected_data.json", "r") as f:
-        json_data = json.loads(f.read())
-
-    return json_data
-
-def get_dynamodb_json():
-    with open("./tests/unit/expected_data_dynamodb.json", "r") as f:
-        dynamodb_json = json.loads(f.read())
-
-    return dynamodb_json
 
 def mock_uuid():
     return UUID_MOCK_VALUE_NEW_USER
@@ -62,7 +56,14 @@ def put_data_dynamodb():
         'dynamodb'
     )
 
+
+
+
     resume = get_dynamodb_json()
+    # resume = get_json_data()
+
+    print(f"USERS_MOCK_TABLE_NAME = {USERS_MOCK_TABLE_NAME}")
+    print(f"resume = {resume}")
 
     conn.put_item(
             TableName=USERS_MOCK_TABLE_NAME,
@@ -76,15 +77,14 @@ def put_data_dynamodb():
 @patch.dict(os.environ, {'USERS_TABLE': USERS_MOCK_TABLE_NAME, 'AWS_XRAY_CONTEXT_MISSING': 'LOG_ERROR'})
 def test_get_resume():
     with my_test_environment():
-        from src.api import users
+        from src.api import resume
         with open('./events/event-get-resume.json', 'r') as f:
             apigw_get_all_users_event = json.load(f)
-
 
         expected_response = get_json_data()
         expected_response['visitors'] = '638'
 
-        ret = users.lambda_handler(apigw_get_all_users_event, '')
+        ret = resume.resume_handler(apigw_get_all_users_event, '')
         assert ret['statusCode'] == 200
 
         data = json.loads(ret['body']).get('resume')
@@ -97,7 +97,7 @@ def test_get_resume():
 
 def test_get_resume_visitor_counter():
     with my_test_environment():
-        from src.api import users
+        from src.api import resume
         with open('./events/event-get-resume.json', 'r') as f:
             apigw_get_all_users_event = json.load(f)
 
@@ -112,7 +112,7 @@ def test_get_resume_visitor_counter():
             expected_response['visitors'] = str(expected_visitor_ctr)
 
             # call the lambda function:
-            ret = users.lambda_handler(apigw_get_all_users_event, '')
+            ret = resume.resume_handler(apigw_get_all_users_event, '')
 
             assert ret['statusCode'] == 200
 

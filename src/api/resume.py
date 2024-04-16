@@ -1,10 +1,17 @@
 import json
+import boto3
 
+from tests.helpers import get_terraform_outputs
+
+print("get_terraform_outputs()")
+print(get_terraform_outputs())
+
+dynamodb = boto3.resource('dynamodb')
+ddbTable = dynamodb.Table(USERS_TABLE)
 
 
 def resume_handler(event, context):
-    status_code = 200
-
+    status_code = 400
     headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
@@ -29,11 +36,19 @@ def resume_handler(event, context):
     'event': event,
     }
 
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'application/json',
 
-        },
+
+    return {
+        'statusCode': status_code,
+        'headers': headers,
         'body': json.dumps(message)
     }
+
+    # return {
+    #     'statusCode': 200,
+    #     'headers': {
+    #         'Content-Type': 'application/json',
+
+    #     },
+    #     'body': json.dumps(message)
+    # }
