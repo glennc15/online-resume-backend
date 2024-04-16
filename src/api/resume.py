@@ -29,7 +29,6 @@ def resume_handler(event, context):
             ReturnValues="UPDATED_NEW"
         )
 
-
         # convert the number to a string. Else will get a decimal serialization error
         # when converting to JSON.dfc
         response_body['resume']['visitors'] = str(next_visitor_ctr)

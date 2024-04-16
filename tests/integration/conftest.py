@@ -10,7 +10,7 @@ import time
 import uuid
 import json
 
-from tests.helpers import get_dynamodb_json, get_terraform_outputs
+from tests.helpers import get_dynamodb_json, get_terraform_outputs, get_json_data
 
 
 globalConfig = {}
@@ -43,7 +43,9 @@ def create_resume_record():
 
     record_data = {
         'userid': str(uuid.uuid1()),
-        'resume': get_dynamodb_json()
+        # 'resume': get_dynamodb_json()
+        'resume': get_json_data()
+
     }
 
     # print(record_data)
@@ -61,21 +63,7 @@ def create_resume_record():
 def global_config(request):
     global globalConfig
 
-
-
-
-    # globalConfig.update({'UsersTable': 'tf-serverless-patterns_Users'})
-    # globalConfig.update({"status": "Hi"})
-    # load outputs of the stacks to test
-    # globalConfig.update(get_stack_outputs(APPLICATION_STACK_NAME))
-    # globalConfig.update(create_cognito_accounts())
-
-    terraform_outputs = get_terraform_outputs()
-    # terraform_outputs['ResumeTable'] = terraform_outputs.get('resume_table')
-
-    globalConfig.update(terraform_outputs)
-    print(globalConfig)
-
+    globalConfig.update(get_terraform_outputs())
     clear_dynamo_tables()
     globalConfig.update(create_resume_record())
 
