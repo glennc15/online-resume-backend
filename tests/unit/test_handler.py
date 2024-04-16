@@ -13,9 +13,6 @@ from unittest.mock import patch
 from tests.helpers import get_json_data, get_dynamodb_json, get_terraform_outputs
 
 
-print("get_terraform_outputs()")
-print(get_terraform_outputs())
-
 USERS_MOCK_TABLE_NAME = get_terraform_outputs().get("ResumeTable")
 UUID_MOCK_VALUE_JOHN = 'f8216640-91a2-11eb-8ab9-57aa454facef'
 UUID_MOCK_VALUE_JANE = '31a9f940-917b-11eb-9054-67837e2c40b0'
@@ -56,14 +53,7 @@ def put_data_dynamodb():
         'dynamodb'
     )
 
-
-
-
     resume = get_dynamodb_json()
-    # resume = get_json_data()
-
-    print(f"USERS_MOCK_TABLE_NAME = {USERS_MOCK_TABLE_NAME}")
-    print(f"resume = {resume}")
 
     conn.put_item(
             TableName=USERS_MOCK_TABLE_NAME,
@@ -74,7 +64,7 @@ def put_data_dynamodb():
         )
 
 
-@patch.dict(os.environ, {'USERS_TABLE': USERS_MOCK_TABLE_NAME, 'AWS_XRAY_CONTEXT_MISSING': 'LOG_ERROR'})
+# @patch.dict(os.environ, {'USERS_TABLE': USERS_MOCK_TABLE_NAME, 'AWS_XRAY_CONTEXT_MISSING': 'LOG_ERROR'})
 def test_get_resume():
     with my_test_environment():
         from src.api import resume
@@ -88,8 +78,6 @@ def test_get_resume():
         assert ret['statusCode'] == 200
 
         data = json.loads(ret['body']).get('resume')
-
-        # assert data == expected_response
 
         for k,v in expected_response.items():
             assert expected_response.get(k) == data.get(k)
