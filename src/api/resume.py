@@ -2,11 +2,9 @@ import json
 import boto3
 from decimal import Decimal
 
-from tests.helpers import get_terraform_outputs
-
 
 dynamodb = boto3.resource('dynamodb')
-ddbTable = dynamodb.Table(get_terraform_outputs().get("ResumeTable"))
+ddbTable = dynamodb.Table("online-resume_Resumes")
 
 
 def resume_handler(event, context):
