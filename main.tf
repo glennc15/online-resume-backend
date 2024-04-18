@@ -7,6 +7,16 @@
 # }
 
 
+
+terraform {
+  backend "remote" {
+    organization = "online-resume-backend"
+    workspaces {
+      name = "online-resume-backend-workspace"
+    }
+  }
+}
+
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
