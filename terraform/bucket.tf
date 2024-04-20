@@ -26,7 +26,7 @@ resource "aws_s3_bucket_acl" "lambda_bucket" {
 data "archive_file" "lambda_resume" {
   type = "zip"
 
-  source_dir  = "${path.module}/src/api"
+  source_dir  = "${path.module}/../src/api"
   output_path = "${path.module}/resume.zip"
 }
 

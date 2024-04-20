@@ -3,12 +3,6 @@
 
 terraform {
 
-#   cloud {
-#     workspaces {
-#       name = "learn-terraform-lambda-api-gateway"
-#     }
-#   }
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -24,5 +18,12 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "online-resume-backend-tf-state"
+    key = "online-resume-backend/terraform.tfstate"
+    region = "us-east-1"
+  }
+
   required_version = "~> 1.2"
+
 }

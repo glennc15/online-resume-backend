@@ -1,28 +1,8 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-# provider "aws" {
-#   region = var.aws_region
-
-# }
-
-
-
-terraform {
-  backend "remote" {
-    organization = "online-resume-backend"
-    workspaces {
-      name = "online-resume-backend-workspace"
-    }
-  }
-}
-
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
-
-
-
-
 
 
 resource "aws_lambda_function" "get_resume" {
